@@ -1,0 +1,2 @@
+@if(session('success'))<div role="status" class="alert success">{{ session('success') }}</div>@endif
+@if($errors->any())<div role="alert" tabindex="-1" data-error-summary class="alert error"><strong>Periksa isian berikut:</strong><ul>@foreach($errors->messages() as $field=>$messages)<li><a data-field="{{ $field }}" href="#{{ str_replace('.','_',$field) }}">{{ $messages[0] }}</a></li>@endforeach</ul></div>@endif

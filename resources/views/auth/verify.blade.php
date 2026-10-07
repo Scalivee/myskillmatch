@@ -1,0 +1,1 @@
+<x-layout title="Verifikasi email"><section class="authbox card"><h1>Verifikasi email Anda</h1><p>Periksa pesan yang dikirim ke email Anda. </p><form method="post" action="{{ route('verification.send') }}">@csrf<button class="btn">Kirim Ulang Tautan</button></form></section></x-layout>

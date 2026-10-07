@@ -1,0 +1,6 @@
+@props(['title'=>'Admin', 'guest'=>false])
+<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{{ $title }} · SkillMatch Admin</title>@vite(['resources/css/app.css','resources/js/app.js'])</head>
+<body class="admin-body" x-data="navigation" @keydown.escape="close"><a class="skip" href="#main">Lewati ke konten</a>
+<header class="header admin-header"><a class="brand" href="{{ route('admin.dashboard') }}"><span class="brandmark" aria-hidden="true">S</span>SkillMatch <span class="admin-label">Admin</span></a><div class="actions"><a href="{{ route('home') }}">Lihat Website</a>@unless($guest)<button class="btn secondary menu-toggle" @click="toggle" :aria-expanded="open" aria-controls="admin-mobile">Menu</button>@endunless</div></header>
+@unless($guest)<nav id="admin-mobile" class="mobile-nav" x-show="open" x-cloak aria-label="Menu Admin">@include('partials.admin-menu')</nav>@endunless
+<div class="{{ $guest ? '' : 'shell' }}">@unless($guest)<aside class="sidebar"><p class="eyebrow">Pengelolaan platform</p><nav aria-label="Panel Admin">@include('partials.admin-menu')</nav></aside>@endunless<main id="main" class="{{ $guest ? 'wrap' : 'content' }}"><x-feedback/>{{ $slot }}</main></div></body></html>

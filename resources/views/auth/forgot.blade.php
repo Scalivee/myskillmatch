@@ -1,0 +1,1 @@
+<x-layout title="Pulihkan akun"><section class="authbox card"><h1>Pulihkan akun</h1><form method="post" action="{{ route('password.email') }}">@csrf<x-field name="email" type="email" label="Email" required/><button class="btn">Kirim Tautan Pemulihan</button></form></section></x-layout>
